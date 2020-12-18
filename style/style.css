@@ -12,11 +12,17 @@ header {
   height: 100px;
   background-color: black;
   line-height: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 header > img {
   width: 200px;
-  vertical-align: middle;
   margin-left: 50px;
+}
+
+.search button {
+  margin-right: 50px;
+  width: 100px;
 }
 
 main {
