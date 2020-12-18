@@ -18,13 +18,13 @@
         </div>
       </header>
       <main id="app">
-        <div class="film">
+        <div class="film" v-for= "film in films">
           <div class="film_cover">
             <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/iKXqUiLFDgeIGozRR6JYRvFmD5A.jpg" alt="">
           </div>
-          <h4>Titolo: Tenet</h4>
-          <h4>Titolo Originale: Tenet</h4>
-          <h4>Lingua: Italiano</h4>
+          <h4>Titolo: {{film.title}}</h4>
+          <h4>Titolo Originale: {{film.original_title}}</h4>
+          <h4>Lingua Originale: {{film.original_language}}</h4>
           <div class="stars">
             <h4>Voto:</h4>
             <i class="fas fa-star"></i>
@@ -35,7 +35,7 @@
           </div>
           <div class="review_film">
             <h4>Recensione:</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <p>{{film.overview}}
             <p>
           </div>
         </div>
