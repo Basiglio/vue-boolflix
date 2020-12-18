@@ -10,6 +10,7 @@ var app = new Vue({
       .then((response) => {
         this.films = response.data.results;
         console.log(this.films);
+        this.message = "";
       });
     }
   }

@@ -51,12 +51,13 @@ main {
   width: 100%;
 }
 .review_film {
-  height: 150px;
+  max-height: 150px;
   margin-top: 25px;
   color: black;
+  overflow-y: auto;
 }
 .review_film p {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .film:hover .film_cover {
