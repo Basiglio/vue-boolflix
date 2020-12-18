@@ -20,7 +20,7 @@
       <main id="app">
         <div class="film" v-for= "film in films">
           <div class="film_cover">
-            <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/iKXqUiLFDgeIGozRR6JYRvFmD5A.jpg" alt="">
+            <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path"  alt="">
           </div>
           <h4>Titolo: {{film.title}}</h4>
           <h4>Titolo Originale: {{film.original_title}}</h4>

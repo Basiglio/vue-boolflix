@@ -56,7 +56,7 @@ main {
   color: black;
 }
 .review_film p {
-  font-size: 15px;
+  font-size: 11px;
 }
 
 .film:hover .film_cover {
