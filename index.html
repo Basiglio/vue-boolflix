@@ -21,8 +21,9 @@
       </header>
       <main id="app">
         <div class="film" v-for= "(film, index) in films">
-          <!-- <h2 v-if="index === 0">Nessun film trovato</h2> -->
-          <template>
+          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          <template v-if="films.length > 0">
+            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
             <div class="film_cover">
               <!-- SE FILM.POSTER_PATh è UGUALE A NULL STAMPA QUESTO -->
               <div class="cover_not_found" v-if="film.poster_path == null ">
@@ -33,102 +34,102 @@
               <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path"  alt="label" v-else>
             </div>
             <h4>Titolo: {{film.title}}</h4>
-            <!-- SE IL TITOLO ORIGINALE NON è UGUALE AL TITOLO STAMPALO -->
+            <!-- SE IL TITOLO ORIGINALE NON FOSSE UGUALE AL TITOLO, STAMPALO -->
             <h4 v-if="film.title != film.original_title">Titolo Originale: {{film.original_title}}</h4>
             <h4>Lingua Originale: {{film.original_language}}</h4>
             <div class="stars">
               <h4>Voto:</h4>
-              <template v-if="film.vote_average <= 0.4">
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
+              <!-- GESTIONE VOTO DEL FILM TRAMITE STELLE -->
+              <template id="stars_average">
+                <template v-if="film.vote_average <= 0.4">
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 0.4 && film.vote_average <= 1.4">
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 1.4 && film.vote_average <= 2.4">
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 2.4 && film.vote_average <= 3.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 3.4 && film.vote_average <= 4.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 4.4 && film.vote_average <= 5.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 5.4 && film.vote_average <= 6.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 6.4 && film.vote_average <= 7.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 7.4 && film.vote_average <= 8.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </template>
+                <template v-if="film.vote_average > 8.4 && film.vote_average <= 9.4">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </template>
+                <template v-if="film.vote_average > 9.4 && film.vote_average <= 10">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </template>
               </template>
-              <template v-if="film.vote_average > 0.4 && film.vote_average <= 1.4">
-                <i class="fas fa-star-half-alt"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 1.4 && film.vote_average <= 2.4">
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 2.4 && film.vote_average <= 3.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 3.4 && film.vote_average <= 4.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 4.4 && film.vote_average <= 5.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 5.4 && film.vote_average <= 6.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 6.4 && film.vote_average <= 7.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 7.4 && film.vote_average <= 8.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-              </template>
-              <template v-if="film.vote_average > 8.4 && film.vote_average <= 9.4">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </template>
-              <template v-if="film.vote_average > 9.4 && film.vote_average <= 10">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </template>
-              <!-- <template >
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </template>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star-half-alt"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i> -->
             </div>
             <div class="review_film">
               <h4>Recensione:</h4>
               <p>{{film.overview}}<p>
             </div>
           </template>
+          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          <template v-else="films.length == 0">
+            <h2 >Il film cercato non esiste</h2>
+          </template>
+          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         </div>
       </main>
     </div>
