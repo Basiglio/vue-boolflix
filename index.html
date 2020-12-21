@@ -28,14 +28,15 @@
               <!-- SE FILM.POSTER_PATh è UGUALE A NULL STAMPA QUESTO -->
               <div class="cover_not_found" v-if="film.poster_path == null ">
                 <h2>{{film.title}} {{film.name}}</h2>
+                <img id="cover_error" src="https://www.comesifasefaidate.it/img/error-404-not-found-logo.png" alt="404">
                 <h3>LOCANDINA NON TROVATA</h3>
               </div>
               <!-- ALTRIMENTO STAMPA LA COPERTINA -->
               <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path"  alt="label" v-else>
             </div>
-            <h4>{{film.title}} {{film.name}}</h4>
+            <h4 class="title">{{film.title}} {{film.name}}</h4>
             <!-- SE IL TITOLO ORIGINALE NON FOSSE UGUALE AL TITOLO, STAMPALO -->
-            <h4 v-if="film.title != film.original_title">Titolo Originale: <br> {{film.original_title}}</h4>
+            <h4 class="title" v-if="film.title != film.original_title">Titolo Originale: <br> {{film.original_title}}</h4>
             <h5 id="languages">Lingua Originale:</h5>
             <img class="language_icon" src="https://images.emojiterra.com/openmoji/v12.2/512px/1f1ec-1f1e7.png" alt="language_flag_en" v-if="film.original_language == 'en'">
             <img class="language_icon" src="https://images.emojiterra.com/openmoji/v12.2/512px/1f1ee-1f1f9.png" alt="language_flag_it" v-else-if="film.original_language == 'it'">
