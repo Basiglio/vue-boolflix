@@ -31,7 +31,7 @@ main {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-main h2 {
+#start_message {
   position: absolute;
   margin-left: 900px;
 }
