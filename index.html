@@ -25,7 +25,7 @@
           <template v-if="films.length > 0">
             <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
             <div class="film_cover">
-              <!-- SE FILM.POSTER_PATh è UGUALE A NULL STAMPA QUESTO -->
+              <!-- SE NON è PRESENTE LA COPERTINA -->
               <div class="cover_not_found" v-if="film.poster_path == null ">
                 <h2>{{film.title}} {{film.name}}</h2>
                 <img id="cover_error" src="https://www.comesifasefaidate.it/img/error-404-not-found-logo.png" alt="404">
@@ -37,12 +37,15 @@
             <h4 class="title">{{film.title}} {{film.name}}</h4>
             <!-- SE IL TITOLO ORIGINALE NON FOSSE UGUALE AL TITOLO, STAMPALO -->
             <h4 class="title" v-if="film.title != film.original_title">Titolo Originale: <br> {{film.original_title}}</h4>
-            <h5 id="languages">Lingua Originale:</h5>
+            <!-- STAMPO LA LINGUA -->
+            <h5 class="languages">Lingua Originale: </h5>
+            <!-- AGGIUNGO BANDIERA SE PRESENTE -->
             <img class="language_icon" src="https://images.emojiterra.com/openmoji/v12.2/512px/1f1ec-1f1e7.png" alt="language_flag_en" v-if="film.original_language == 'en'">
             <img class="language_icon" src="https://images.emojiterra.com/openmoji/v12.2/512px/1f1ee-1f1f9.png" alt="language_flag_it" v-else-if="film.original_language == 'it'">
+            <h4 v-else>{{film.original_language}}</h4>
+            <!-- GESTIONE VOTO DEL FILM TRAMITE STELLE -->
             <div class="stars">
               <h5>Voto:</h5>
-              <!-- GESTIONE VOTO DEL FILM TRAMITE STELLE -->
               <template id="stars_average">
                 <template v-if="Math.ceil(film.vote_average) < 2">
                   <i class="fas fa-star"></i>
@@ -51,28 +54,28 @@
                   <i class="far fa-star"></i>
                   <i class="far fa-star"></i>
                 </template>
-                <template v-if="Math.ceil(film.vote_average) > 2 && film.vote_average <= 4">
+                <template v-else-if="Math.ceil(film.vote_average) > 2 && film.vote_average <= 4">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="far fa-star"></i>
                   <i class="far fa-star"></i>
                   <i class="far fa-star"></i>
                 </template>
-                <template v-if="Math.ceil(film.vote_average) > 4 && film.vote_average <= 6">
+                <template v-else-if="Math.ceil(film.vote_average) > 4 && film.vote_average <= 6">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="far fa-star"></i>
                   <i class="far fa-star"></i>
                 </template>
-                <template v-if="Math.ceil(film.vote_average) > 6 && film.vote_average <= 8">
+                <template v-else-if="Math.ceil(film.vote_average) > 6 && film.vote_average <= 8">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="far fa-star"></i>
                 </template>
-                <template v-if="Math.ceil(film.vote_average) > 8 && film.vote_average <= 10">
+                <template v-else="Math.ceil(film.vote_average) > 8 && film.vote_average <= 10">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
@@ -81,9 +84,13 @@
                 </template>
               </template>
             </div>
+            <!-- GESTIONE RECENSIONE -->
             <div class="review_film">
               <h5>Recensione:</h5>
-              <p>{{film.overview}}<p>
+              <!-- SE LA RECENSIONE NON FOSSE PRESENTE -->
+              <p v-if="film.overview == '' "> RECENSIONE NON PRESENTE</p>
+              <!-- ALTRIMENTI -->
+              <p v-else>{{film.overview}}<p>
             </div>
           </template>
           <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->

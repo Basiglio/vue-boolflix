@@ -72,7 +72,7 @@ main {
   color: black;
   overflow-y: auto;
 }
-#languages {
+.languages {
   display: inline-block;
 }
 .language_icon {
@@ -85,6 +85,9 @@ main {
 }
 .film:hover .film_cover {
   display: none;
+}
+.stars h5 {
+  display: inline-block;
 }
 #cover_error {
   width: 50%;

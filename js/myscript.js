@@ -5,6 +5,15 @@ var app = new Vue({
     message:"",
     // CREO ARRAY DI APPOGGIO PER API
     films: [],
+    // languages:
+    // [
+    //   {
+    //     it: "https://images.emojiterra.com/openmoji/v12.2/512px/1f1ec-1f1e7.png"
+    //   },
+    //   {
+    //     en: "https://images.emojiterra.com/openmoji/v12.2/512px/1f1ee-1f1f9.png"
+    //   }
+    // ],
   },
   methods: {
     // CREO METODO(FUNZIONE)
