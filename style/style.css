@@ -65,9 +65,16 @@ main {
 }
 .review_film {
   max-height: 150px;
-  margin-top: 25px;
+  margin-top: 5px;
   color: black;
   overflow-y: auto;
+}
+#languages {
+  display: inline-block;
+}
+.language_icon {
+  width: 25px;
+  vertical-align: bottom;
 }
 .review_film p {
   font-size: 12px;
