@@ -10,7 +10,7 @@ var app = new Vue({
     // CREO METODO(FUNZIONE)
     search: function () {
       // CHIAMO L'API E CONCATENO LA VALUE DEL MIO INPUT
-      axios.get("https://api.themoviedb.org/3/search/movie?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48" + "&query=" + this.message)
+      axios.get("https://api.themoviedb.org/3/search/multi?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48" + "&query=" + this.message)
       // OTTENGO LA MIA RISPOSTA
       .then((response) => {
         // ASSEGNO IL MIO ARRAY CON L'ARRAY DELL'API
