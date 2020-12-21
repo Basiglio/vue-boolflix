@@ -3,17 +3,12 @@ var app = new Vue({
   data: {
     // CREO DATA PER IL VALUE DEL INPUT
     message:"",
+    // CREO UN MESSAGGIO VUOTO NEL CASO LA RICERCA FALLISCA
+    messageNotFound: "",
     // CREO ARRAY DI APPOGGIO PER API
     films: [],
-    // languages:
-    // [
-    //   {
-    //     it: "https://images.emojiterra.com/openmoji/v12.2/512px/1f1ec-1f1e7.png"
-    //   },
-    //   {
-    //     en: "https://images.emojiterra.com/openmoji/v12.2/512px/1f1ee-1f1f9.png"
-    //   }
-    // ],
+    fullStar:"fas",
+    emptyStar:"far"
   },
   methods: {
     // CREO METODO(FUNZIONE)
@@ -27,7 +22,25 @@ var app = new Vue({
         console.log(this.films);
         // SVUOTO LA VALUE DEL MIO INPUT
         this.message = "";
+        // NEL CASO IL MIO ARRAY ABBIA LUNGHEZZA 0 ASSEGNO AL MESSAGGIO VUOTO UNA STRINGA
+        this.messageNotFound = "Il film cercato non esiste, effettua un altra ricerca"
       });
-    }
+    },
+
+    // averageStars: function (number){
+    //   let integer = Math.ceil(number);
+    //   if (integer < 2) {
+    //
+    //   } else if (integer > 2 && integer <= 4) {
+    //
+    //   } else if (integer > 4 && integer <= 6) {
+    //
+    //   } else if (integer > 6 && integer <= 8) {
+    //
+    //   } else (integer > 8 && integer <= 10) {
+    //
+    //   }
+    // }
+
   }
 })

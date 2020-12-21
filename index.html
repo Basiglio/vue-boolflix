@@ -20,10 +20,11 @@
         </div>
       </header>
       <main id="app">
-        <div class="film" v-for= "(film, index) in films">
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-          <template v-if="films.length > 0">
-            <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <template v-if="films.length == 0">
+          <h2 id="message_not_found">{{messageNotFound}}</h2>
+        </template>
+        <template v-else>
+          <div class="film" v-for= "(film, index) in films">
             <div class="film_cover">
               <!-- SE NON è PRESENTE LA COPERTINA -->
               <div class="cover_not_found" v-if="film.poster_path == null ">
@@ -46,7 +47,6 @@
             <!-- GESTIONE VOTO DEL FILM TRAMITE STELLE -->
             <div class="stars">
               <h5>Voto:</h5>
-              <template id="stars_average">
                 <template v-if="Math.ceil(film.vote_average) < 2">
                   <i class="fas fa-star"></i>
                   <i class="far fa-star"></i>
@@ -82,7 +82,6 @@
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                 </template>
-              </template>
             </div>
             <!-- GESTIONE RECENSIONE -->
             <div class="review_film">
@@ -94,9 +93,7 @@
             </div>
           </template>
           <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-          <template v-else="films.length == 0">
-            <h2 >Il film cercato non esiste</h2>
-          </template>
+
           <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         </div>
       </main>
