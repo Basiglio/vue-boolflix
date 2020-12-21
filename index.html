@@ -20,6 +20,7 @@
         </div>
       </header>
       <main id="app">
+        <h2>{{startMessage}}</h2>
         <template v-if="films.length == 0">
           <h2 id="message_not_found">{{messageNotFound}}</h2>
         </template>
@@ -47,41 +48,41 @@
             <!-- GESTIONE VOTO DEL FILM TRAMITE STELLE -->
             <div class="stars">
               <h5>Voto:</h5>
-                <template v-if="Math.ceil(film.vote_average) < 2">
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </template>
-                <template v-else-if="Math.ceil(film.vote_average) > 2 && film.vote_average <= 4">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </template>
-                <template v-else-if="Math.ceil(film.vote_average) > 4 && film.vote_average <= 6">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                  <i class="far fa-star"></i>
-                </template>
-                <template v-else-if="Math.ceil(film.vote_average) > 6 && film.vote_average <= 8">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="far fa-star"></i>
-                </template>
-                <template v-else="Math.ceil(film.vote_average) > 8 && film.vote_average <= 10">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                </template>
+              <template v-if="Math.ceil(film.vote_average) < 2">
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </template>
+              <template v-else-if="Math.ceil(film.vote_average) > 2 && film.vote_average <= 4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </template>
+              <template v-else-if="Math.ceil(film.vote_average) > 4 && film.vote_average <= 6">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </template>
+              <template v-else-if="Math.ceil(film.vote_average) > 6 && film.vote_average <= 8">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </template>
+              <template v-else="Math.ceil(film.vote_average) > 8 && film.vote_average <= 10">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </template>
             </div>
             <!-- GESTIONE RECENSIONE -->
             <div class="review_film">
@@ -92,9 +93,6 @@
               <p v-else>{{film.overview}}<p>
             </div>
           </template>
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-          <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         </div>
       </main>
     </div>

@@ -31,6 +31,10 @@ main {
   justify-content: flex-start;
   flex-wrap: wrap;
 }
+main h2 {
+  position: absolute;
+  margin-left: 900px;
+}
 .film {
   width: 220px;
   height: 330px;
