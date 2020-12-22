@@ -5,7 +5,8 @@ var app = new Vue({
     message:"",
     // CREO UN MESSAGGIO VUOTO NEL CASO LA RICERCA FALLISCA
     messageNotFound: "",
-    startMessage:"Scrivi il titolo, clicca su Vai o premi Invio",
+    // CREO MESSAGGIO INIZIALE
+    startMessage:"Scrivi il titolo, clicca su Vai o premi Invio.",
     // CREO ARRAY DI APPOGGIO PER API
     films: [],
   },
@@ -21,9 +22,10 @@ var app = new Vue({
         console.log(this.films);
         // SVUOTO LA VALUE DEL MIO INPUT
         this.message = "";
+        // CANCELLO MESSAGIO INIZIALE
         this.startMessage = "";
-        // NEL CASO IL MIO ARRAY ABBIA LUNGHEZZA 0 ASSEGNO AL MESSAGGIO VUOTO UNA STRINGA
-        this.messageNotFound = "Il film cercato non esiste, effettua un' altra ricerca";
+        // NEL CASO IL MIO ARRAY ABBIA LUNGHEZZA 0 VISUAIZZO QUESTO MESSAGGIO
+        this.messageNotFound = "Il film cercato non esiste, effettua un' altra ricerca.";
       });
     },
   }
