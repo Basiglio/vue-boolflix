@@ -28,8 +28,8 @@ header > img {
 
 main {
   display: flex;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 #start_message {
   position: absolute;

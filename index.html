@@ -27,7 +27,7 @@
         <template v-else>
           <div class="film" v-for= "(film, index) in films">
             <div class="film_cover">
-              <!-- SE NON è PRESENTE LA COPERTINA -->
+              <!-- SE NON FOSSE PRESENTE LA COPERTINA -->
               <div class="cover_not_found" v-if="film.poster_path == null ">
                 <h2>{{film.title}} {{film.name}}</h2>
                 <img id="cover_error" src="https://www.comesifasefaidate.it/img/error-404-not-found-logo.png" alt="404">
