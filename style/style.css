@@ -76,7 +76,7 @@ main {
   margin-top: 50px;
 }
 .review_film {
-  max-height: 150px;
+  max-height: 130px;
   margin-top: 5px;
   color: black;
   overflow-y: auto;

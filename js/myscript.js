@@ -29,7 +29,7 @@ var app = new Vue({
       });
     },
     mostPopular: function () {
-      axios.get("https://api.themoviedb.org/3/movie/popular?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48")
+      axios.get("https://api.themoviedb.org/3/movie/popular?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=it-IT")
       .then((response) => {
         this.films = response.data.results;
         this.startMessage = "";
