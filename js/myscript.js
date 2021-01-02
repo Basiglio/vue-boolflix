@@ -34,6 +34,13 @@ var app = new Vue({
         this.films = response.data.results;
         this.startMessage = "";
       });
+    },
+    upcoming: function() {
+      axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=it-IT")
+      .then((response) => {
+        this.films = response.data.results;
+        this.startMessage = "";
+      });
     }
   }
 })
