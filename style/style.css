@@ -31,9 +31,10 @@ main {
   flex-wrap: wrap;
   padding: 0px 30px;
 }
+
 #start_message {
   position: absolute;
-  margin-left: 900px;
+  margin-left: 800px;
 }
 .film {
   width: 220px;

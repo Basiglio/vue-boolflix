@@ -6,7 +6,7 @@ var app = new Vue({
     // CREO UN MESSAGGIO VUOTO NEL CASO LA RICERCA FALLISCA
     messageNotFound: "",
     // CREO MESSAGGIO INIZIALE
-    startMessage:"Scrivi il titolo, clicca su Vai o premi Invio.",
+    startMessage:"Cerca tramite preset oppure scrivi il titolo, clicca su Vai o premi Invio.",
     // CREO ARRAY DI APPOGGIO PER API
     films: [],
   },
@@ -28,5 +28,12 @@ var app = new Vue({
         this.messageNotFound = "Il film cercato non esiste, effettua un' altra ricerca.";
       });
     },
+    mostPopular: function () {
+      axios.get("https://api.themoviedb.org/3/movie/popular?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48")
+      .then((response) => {
+        this.films = response.data.results;
+        this.startMessage = "";
+      });
+    }
   }
 })

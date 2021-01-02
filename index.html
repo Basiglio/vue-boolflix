@@ -14,6 +14,9 @@
     <div id="app">
       <header>
         <img src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo.png" alt="top_logo">
+        <div class="preset_search_button">
+          <button type="button" name="button" @click="mostPopular">Più Popolari</button>
+        </div>
         <div class="search">
           <input type="text" value="" placeholder="Cerca un film" v-model="message" v-on:keyup.enter="search">
           <button type="button" name="button" @click="search">Vai</button>
@@ -33,7 +36,7 @@
                 <img id="cover_error" src="https://www.comesifasefaidate.it/img/error-404-not-found-logo.png" alt="404">
                 <h3>LOCANDINA NON TROVATA</h3>
               </div>
-              <!-- ALTRIMENTO STAMPA LA COPERTINA -->
+              <!-- ALTRIMENTI STAMPA LA COPERTINA -->
               <img :src="'https://image.tmdb.org/t/p/w220_and_h330_face/' + film.poster_path"  alt="label" v-else>
             </div>
             <h4 class="title">{{film.title}} {{film.name}}</h4>
