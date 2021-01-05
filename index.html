@@ -15,10 +15,22 @@
       <header>
         <img src="https://logos-world.net/wp-content/uploads/2020/04/Netflix-Logo.png" alt="top_logo">
         <div class="preset_search_button">
-          <button type="button" name="button" @click="mostPopular">Più Popolari in Italia</button>
-          <button type="button" name="button" @click=upcoming>Prossimamente in Italia</button>
+          <button type="button" name="button" @click="mostPopular">
+            Più Popolari
+          </button>
+          <button type="button" name="button" @click=upcoming>
+            Prossimamente
+          </button>
+          <button type="button" name="button" @click=mostPopularTvShow>
+            Serie TV più viste
+          </button>
         </div>
         <div class="search">
+          <select v-model="language">
+            <option disabled value="">Scegli la lingua</option>
+            <option value="it-IT">italiano</option>
+            <option value="en-US">inglese</option>
+          </select>
           <input type="text" value="" placeholder="Cerca un film" v-model="message" v-on:keyup.enter="search">
           <button type="button" name="button" @click="search">Vai</button>
         </div>

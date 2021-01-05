@@ -9,12 +9,14 @@ var app = new Vue({
     startMessage:"Cerca tramite preset oppure scrivi il titolo, clicca su Vai o premi Invio.",
     // CREO ARRAY DI APPOGGIO PER API
     films: [],
+    // CREO CONTENITORE PER IL VALUE DELLA LINGUA
+    language: "",
   },
   methods: {
     // CREO METODO(FUNZIONE)
     search: function () {
       // CHIAMO L'API E CONCATENO LA VALUE DEL MIO INPUT
-      axios.get("https://api.themoviedb.org/3/search/multi?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48" + "&query=" + this.message)
+      axios.get("https://api.themoviedb.org/3/search/multi?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48" + "&language=" + this.language + "&query="  + this.message)
       // OTTENGO LA MIA RISPOSTA
       .then((response) => {
         // ASSEGNO IL MIO ARRAY CON L'ARRAY DELL'API
@@ -24,19 +26,26 @@ var app = new Vue({
         this.message = "";
         // CANCELLO MESSAGIO INIZIALE
         this.startMessage = "";
-        // NEL CASO IL MIO ARRAY ABBIA LUNGHEZZA 0 VISUAIZZO QUESTO MESSAGGIO
+        // NEL CASO IL MIO ARRAY ABBIA LUNGHEZZA 0 VISUALIZZO QUESTO MESSAGGIO
         this.messageNotFound = "Il film cercato non esiste, effettua un' altra ricerca.";
       });
     },
     mostPopular: function () {
-      axios.get("https://api.themoviedb.org/3/movie/popular?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=it-IT")
+      axios.get("https://api.themoviedb.org/3/movie/popular?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=" + this.language)
       .then((response) => {
         this.films = response.data.results;
         this.startMessage = "";
       });
     },
     upcoming: function() {
-      axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=it-IT")
+      axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=" + this.language)
+      .then((response) => {
+        this.films = response.data.results;
+        this.startMessage = "";
+      });
+    },
+    mostPopularTvShow: function() {
+      axios.get("https://api.themoviedb.org/3/tv/popular?api_key=cfdd37ec50ecc36f0abe0f17a31c2b48&language=" + this.language)
       .then((response) => {
         this.films = response.data.results;
         this.startMessage = "";
