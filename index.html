@@ -31,7 +31,7 @@
             <option value="it-IT">italiano</option>
             <option value="en-US">inglese</option>
           </select>
-          <input type="text" value="" placeholder="Cerca un film" v-model="message" v-on:keyup.enter="search">
+          <input type="text" value="" placeholder="Cerca un film" v-model="message" v-on:keydown.enter="search">
           <button type="button" name="button" @click="search">Vai</button>
         </div>
       </header>
@@ -63,41 +63,51 @@
             <h4 v-else>{{film.original_language}}</h4>
             <!-- GESTIONE VOTO DEL FILM TRAMITE STELLE -->
             <div class="stars">
-              <h5>Voto:</h5>
-              <template v-if="Math.ceil(film.vote_average) < 2">
+              <h5>Voto: {{film.vote_average}}</h5>
+              <template v-if="film.vote_average == 0">
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </template>
+              <template v-else-if="film.vote_average  == 1">
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
               </template>
-              <template v-else-if="Math.ceil(film.vote_average) > 2 && film.vote_average <= 4">
+              <template v-else-if="film.vote_average == 2">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
               </template>
-              <template v-else-if="Math.ceil(film.vote_average) > 4 && film.vote_average <= 6">
+              <template v-else-if="film.vote_average == 3">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
                 <i class="far fa-star"></i>
               </template>
-              <template v-else-if="Math.ceil(film.vote_average) > 6 && film.vote_average <= 8">
+              <template v-else-if="film.vote_average == 4 ">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="far fa-star"></i>
               </template>
-              <template v-else="Math.ceil(film.vote_average) > 8 && film.vote_average <= 10">
+              <template v-else-if="film.vote_average == 5 ">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
+              </template>
+              <template v-else="film.vote_average == NaN ">
+                <h4>Senza voto</h4>
               </template>
             </div>
             <!-- GESTIONE RECENSIONE -->
