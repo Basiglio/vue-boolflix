@@ -25,7 +25,6 @@ var app = new Vue({
         });
         // ASSEGNO IL MIO ARRAY CON L'ARRAY DELL'API
         this.films = response.data.results;
-        console.log(this.films);
         // SVUOTO LA VALUE DEL MIO INPUT
         this.message = "";
         // CANCELLO MESSAGIO INIZIALE
